@@ -1,0 +1,16 @@
+applications:
+- name: superherosightings-test
+  routes:
+    - route: superherosightings-test.us-east-1.np.paas.lmig.com
+  buildpack: java_current
+  instances: 1
+  memory: 1024M
+  timeout: 180
+  env:
+    NEW_RELIC_APP_NAME: superherosightings-test
+  services:
+    - superherosightings-test-keys
+    - newrelic
+    - everyday-curfew
+  blue-green:
+    health-check-endpoint: /health

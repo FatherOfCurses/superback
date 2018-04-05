@@ -1,0 +1,15 @@
+applications:
+- name: superherosightings
+  routes:
+    - route: superherosightings.us-east-1.paas.lmig.com
+  buildpack: java_current
+  instances: 2
+  memory: 1024M
+  timeout: 180
+  env:
+    NEW_RELIC_APP_NAME: superherosightings
+  services:
+    - superherosightings-production-keys
+    - newrelic
+  blue-green:
+    health-check-endpoint: /health

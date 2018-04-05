@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Liquibase Change Log http://www.liquibase.org/documentation/index.html -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+
+    <changeSet id="1" author="Principe">
+
+        <sql>
+            CREATE SCHEMA IF NOT EXISTS SUPERHERO;
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="Principe">
+        <sql>
+            CREATE TABLE IF NOT EXISTS SUPERHERO.POWER (
+            POWER_ID INT NOT NULL AUTO_INCREMENT,
+            POWER_NAME VARCHAR(45) NOT NULL,
+            POWER_DESCRIPTION VARCHAR(1000) NOT NULL,
+            POWER_ACQUIRE VARCHAR(100) NULL,
+            PRIMARY KEY (POWER_ID));
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="Principe">
+        <sql>
+            CREATE TABLE IF NOT EXISTS SUPERHERO.ORG (
+            ORG_ID INT NOT NULL AUTO_INCREMENT,
+            ORG_NAME VARCHAR(45) NOT NULL,
+            ORG_ALIGNMENT VARCHAR(45) NOT NULL,
+            ORG_DESCRIPTION VARCHAR(500) NULL,
+            ORG_ADDRESS_1 VARCHAR(50) NOT NULL,
+            ORG_ADDRESS_2 VARCHAR(50) NULL,
+            ORG_CITY VARCHAR(40) NOT NULL,
+            ORG_STATE VARCHAR(40) NOT NULL,
+            ORG_POST_CODE VARCHAR(20) NULL,
+            ORG_COUNTRY VARCHAR(40) NOT NULL,
+            ORG_EMAIL VARCHAR(60) NULL,
+            ORG_PHONE VARCHAR(30) NULL,
+            PRIMARY KEY (ORG_ID));
+        </sql>
+    </changeSet>
+</databaseChangeLog>
